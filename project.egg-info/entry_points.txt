@@ -1,0 +1,2 @@
+[scrapy]
+settings = edu_news.settings
