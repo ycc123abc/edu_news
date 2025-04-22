@@ -130,7 +130,7 @@ class PagePool:
         self.pool_size = pool_size
         self.chromium_options = ChromiumOptions()
         self.chromium_options.no_imgs(True).no_js(True)
-        self.chromium_options.headless(False)
+        # self.chromium_options.headless()
         self.browser = Chromium(self.chromium_options)
         self.pages = Queue()
         self.max_pool_size=2*self.pool_size
@@ -187,10 +187,12 @@ class DrissionpageMiddleware:
             print("请求wait_ele",wait_ele)
             page =self.pool.get_page()
             try:
-                page.get(request.url)
+                page.get(request.url,timeout=15)
                 if wait_ele:
                     page.wait.eles_loaded(wait_ele, timeout=5,any_one=True)
+                page.change_mode()
                 html = page.html
+                page.change_mode()
                 return HtmlResponse(
                     url=page.url,
                     body=html.encode('utf-8'),

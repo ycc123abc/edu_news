@@ -190,7 +190,9 @@ class DrissionpageMiddleware:
                 page.get(request.url,timeout=15)
                 if wait_ele:
                     page.wait.eles_loaded(wait_ele, timeout=5,any_one=True)
+                page.change_mode()
                 html = page.html
+                page.change_mode()
                 return HtmlResponse(
                     url=page.url,
                     body=html.encode('utf-8'),

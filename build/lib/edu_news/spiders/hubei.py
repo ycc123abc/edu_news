@@ -27,11 +27,11 @@ class ZygovSpider(scrapy.Spider):
             self.source_web_name="湖北省教育厅"
             if "GK2020" in url:
                 wait_ele="//ul[@class='info-list']/li"
-                page_xpath="//div[@class='black2']/a[6]"
+                page_xpath="//a[6]"
                 yield scrapy.Request(url=url, callback=self.parse,meta={"page":1,"_url":url,"wait_ele":f"xpath:{wait_ele}","page_xpath":page_xpath})
             else:
                 wait_ele="//li[@class='col-md-6']"
-                page_xpath="//a[6]"
+                page_xpath="//div[@class='black2']/a[6]"
                 yield scrapy.Request(url=url, callback=self.parse,meta={"page":1,"_url":url,"wait_ele":f"xpath:{wait_ele}","page_xpath":page_xpath})
 
 
@@ -64,11 +64,11 @@ class ZygovSpider(scrapy.Spider):
         for zixun in zixuns:
             try:
                 item=EduNewsItem()
-                item['title']=zixun.xpath(".//a/text()")[0].extract()
+                item['title']=zixun.xpath(".//a/text()")[0].extract().replace("\n","").replace("\t","").replace(" ","")
                 if "GK2020" in response.url:
                     item['time']=zixun.xpath("./span/text()")[0].extract()
                 else :
-                    tt=zixun.xpath("./div[@class='calendar']//text()")[0].extract()+zixun.xpath("./div[@class='calendar']//text()")[1].extract()
+                    tt=zixun.xpath("./div[@class='calendar']//text()")[1].extract()+"-"+zixun.xpath("./div[@class='calendar']//text()")[0].extract()
                     item['time']=tt.replace("\n","").replace("\t","").replace(" ","")
                 if self.redis_check(item):
                     n+=1
@@ -109,17 +109,17 @@ class ZygovSpider(scrapy.Spider):
             
             if self.global_page_num[_url] is None:
                 # 获取总页数
+                page_xpath=response.meta.get("page_xpath","")
                 try:
-                    page_xpath=response.meta.get("page_xpath","")
-                    page=response.xpath("//div[@class='black2']/a[6]/@href")[0].extract()
+                    page=response.xpath(page_xpath)[0].extract()
                     page=page.split("_")[-1].split(".")[0]
                     page=int(page)
                     self.global_page_num[_url]=page
                 except:
                     self.global_page_num[_url]=1
             if next_page <= self.global_page_num[_url]:
-                next_url = urljoin(response.url, f"index_{next_page-1}.html")
-                yield scrapy.Request(next_url, callback=self.parse, meta={'page': next_page,"_url":_url,"wait_ele":f"xpath:{wait_ele}","page_xpath":page_xpath})
+                next_url = urljoin(response.url, f"index_{next_page-1}.shtml")
+                yield scrapy.Request(next_url, callback=self.parse, meta={'page': next_page,"_url":_url,"wait_ele":f"xpath:{wait_ele}"})
 
 
 

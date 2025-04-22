@@ -5,10 +5,9 @@ op.headless=False
 ch=Chromium(op)
 
 tab=ch.new_tab()
-tab.get("https://jyt.hubei.gov.cn/bmdt/gxhptlm/cxal/")
 
+tab.get("https://jyt.nmg.gov.cn/zfxxgk/fdzdgknr/bmwj/index_1.html")
+tab.change_mode()
 html=tab.html
-tree=etree.HTML(html)
-
-tree=tree.xpath("//li[@class='col-md-6'][1]/div[@class='calendar']//text()")
-print(tree[1].replace("\n","").replace(" ","")+"-"+tree[0].replace("\n","").replace(" ",""))
+html.encode("utf-8")
+print(html)
