@@ -130,7 +130,7 @@ class PagePool:
         self.pool_size = pool_size
         self.chromium_options = ChromiumOptions()
         self.chromium_options.no_imgs(True).no_js(True)
-        self.chromium_options.headless()
+        # self.chromium_options.headless()
         self.browser = Chromium(self.chromium_options)
         self.pages = Queue()
         self.max_pool_size=2*self.pool_size

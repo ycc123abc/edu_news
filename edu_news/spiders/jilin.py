@@ -6,31 +6,26 @@ from redis import Redis
 import hashlib
 
 class ZygovSpider(scrapy.Spider):
-    name = "shandong"
-    allowed_domains = ["edu.shandong.gov.cn"]
+    name = "jilin"
+    allowed_domains = ["jyt.jl.gov.cn"]
     global_page_num:dict={}
     redis_conn =Redis(host="127.0.0.1", port=6379, db=7)
 
     def start_requests(self):
-        start_urls = ["http://edu.shandong.gov.cn/col/col11969/index.html",   # 工作动态
-                  "http://edu.shandong.gov.cn/col/col11972/index.html",         #战线联播
-                   "http://edu.shandong.gov.cn/col/col11973/index.html",           #新闻发布会
-                   "http://edu.shandong.gov.cn/col/col11974/index.html",  #厅长办公会
-                   "http://edu.shandong.gov.cn/col/col11975/index.html", #媒体聚焦
-                   "http://edu.shandong.gov.cn/col/col278347/index.html", #政策解读
-                   "http://edu.shandong.gov.cn/col/col124275/index.html",# 鲁教发
-                   "http://edu.shandong.gov.cn/col/col124276/index.html",#鲁教字
-                   "http://edu.shandong.gov.cn/col/col124277/index.html",# 鲁教函
-                   "http://edu.shandong.gov.cn/col/col11990/index.html",#政策文件
-                   "http://edu.shandong.gov.cn/col/col11992/index.html" ,#政策解读
-                   "http://edu.shandong.gov.cn/col/col11982/index.html", #通知公告
-        ]
+        start_urls = ["http://jyt.jl.gov.cn/zwgk/zcjd/",   #政策解读
+                  "http://jyt.jl.gov.cn/zwgk/ggl/",         #公告栏
+                   "http://jyt.jl.gov.cn/zwgk/wjtz/",           #文件通知
+                   "http://jyt.jl.gov.cn/zyhd/",              #重要活动
+                   "http://jyt.jl.gov.cn/jydt/xdt/index.htm",   #各地各高校动态
+                   "http://jyt.jl.gov.cn/jydt/gjssdt/",  #国家省级动态
 
+
+    
+        ]
         for url in start_urls:
             print(url)
-            self.source_web_name="山东省教育厅"
             self.global_page_num[url]=None
-            self.wait_ele="//div[@class='default_pgContainer']/li"
+            self.wait_ele="//table[@class='table1 navBlock']/tbody/tr/td/table[2]/tbody/tr/td[1]/table[1]/tbody/tr"
             yield scrapy.Request(url=url, callback=self.parse,meta={"page":1,"_url":url,"wait_ele":f"xpath:{self.wait_ele}"})
     
 
@@ -64,9 +59,9 @@ class ZygovSpider(scrapy.Spider):
         for zixun in zixuns:
             try:
                 item=EduNewsItem()
-                item['title']=zixun.xpath("./a/text()")[0].extract()
+                item['title']=zixun.xpath("./td[1]/a[@class='style_ys03']/text()")[0].extract()
                 
-                item['time']=zixun.xpath("./span/text()")[0].extract()
+                item['time']=zixun.xpath("./td[2]/text()")[0].extract()
                 
                 
                 if self.redis_check(item):
@@ -74,15 +69,13 @@ class ZygovSpider(scrapy.Spider):
                     if n>=len(zixuns):
                         has_new=False
                     continue
-                item['source_web_name']=self.source_web_name
-                patrurl=urljoin(response.url,zixun.xpath("./a/@href")[0].extract())
+                item['source_web_name']="吉林省教育厅"
+                patrurl=urljoin(response.url,zixun.xpath("./td[1]/a[@class='style_ys03']/@href")[0].extract())
                 item['url']=patrurl
                 item['source_url']=response.url
 
-                source_name=response.xpath("//div[@class='dqwz_box']/table/tbody/tr/td[2]/table/tbody/tr/td/a/text()")
-
-                item['source_name']=source_name[-1].extract()
-
+                item['source_name']=response.xpath("//a[@class='CurrChnlCls']/text()")[-1].extract()
+   
                 current_time=time.localtime()
                 item['create_time']=time.strftime("%Y-%m-%d %H:%M:%S", current_time)
                 yield item
@@ -96,14 +89,15 @@ class ZygovSpider(scrapy.Spider):
             
             if self.global_page_num[_url] is None:
                 # 获取总页数
-                page=response.xpath("//span[@class='default_pgTotalPage']/text()")[0].extract()
+                page=response.xpath("//div[@id='pages']/a[7]/@href")[0].extract()
+                page=page.split("_")[-1].split(".")[0]
                 try:
                     page=int(page)
                     self.global_page_num[_url]=page
                 except:
                     self.global_page_num[_url]=1
             if next_page <= self.global_page_num[_url]:
-                next_url = urljoin(response.url, f"?uid=686126&pageNum={next_page}")
+                next_url = urljoin(response.url, f"index_{next_page-1}.htm")
                 yield scrapy.Request(next_url, callback=self.parse, meta={'page': next_page,"_url":_url,"wait_ele":f"xpath:{wait_ele}"})
 
 
