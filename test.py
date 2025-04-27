@@ -1,13 +1,13 @@
-from DrissionPage import Chromium, ChromiumOptions
-from lxml import etree
-op=ChromiumOptions()
-op.headless=False
-ch=Chromium(op)
+import requests
 
-tab=ch.new_tab()
+url = "https://jyt.qinghai.gov.cn/xw/jydt/indexf.ashx"
 
-tab.get("https://jyt.nmg.gov.cn/zfxxgk/fdzdgknr/bmwj/index_1.html")
-tab.change_mode()
-html=tab.html
-html.encode("utf-8")
-print(html)
+payload = {'namereq': '1461,1429,1425,1422,1420,1419,1426,1407,1386,1382,1381,1378,1377'}
+files=[
+
+]
+headers = {}
+
+response = requests.request("POST", url, headers=headers, data=payload, files=files)
+
+print(response.text)

@@ -86,8 +86,7 @@ class ZygovSpider(scrapy.Spider):
             
             if self.global_page_num[_url] is None:
                 # 获取总页数
-                page=response.xpath("//span[@class='total']/text()")[0].extract()
-                page=page.replace("共","").replace("页","").replace(" ","") 
+                page=response.xpath("//a[6]/@paged")[0].extract()
                 try:
                     page=int(page)
                     self.global_page_num[_url]=page

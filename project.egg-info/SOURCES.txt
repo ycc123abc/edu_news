@@ -17,6 +17,7 @@ edu_news/spiders/hunan.py
 edu_news/spiders/jiangsu.py
 edu_news/spiders/jiangxi.py
 edu_news/spiders/jilin.py
+edu_news/spiders/liaoning.py
 edu_news/spiders/neimenggu.py
 edu_news/spiders/shandong.py
 edu_news/spiders/shanghai.py

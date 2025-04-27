@@ -112,35 +112,32 @@ from queue import Queue
 from threading import Lock, Semaphore
 from scrapy import signals
 from twisted.internet import threads
+from filelock import FileLock
+import os
+import atexit
+from DrissionPage import Chromium, ChromiumOptions
+from scrapy.http import HtmlResponse
+from queue import Queue
+from threading import Lock
+from scrapy import signals
+from twisted.internet import threads
 
 class PagePool:
-    _instance = None
-    _lock = Lock()
-
-    def __new__(cls, pool_size=4):
-        with cls._lock:
-            if not cls._instance:
-                cls._instance = super().__new__(cls)
-                cls._instance.__initialized = False
-        return cls._instance
-    def __init__(self, pool_size=4):
-        if self.__initialized:
-            return
-        self.__initialized = True
+    def __init__(self, pool_size=8):
         self.pool_size = pool_size
         self.chromium_options = ChromiumOptions()
-        self.chromium_options.no_imgs(True).no_js(True)
-        # self.chromium_options.headless()
+        self.chromium_options.no_imgs(True)
+        self.chromium_options.headless()
         self.browser = Chromium(self.chromium_options)
         self.pages = Queue()
-        self.max_pool_size=2*self.pool_size
+        self.max_pool_size = 2 * self.pool_size
         self.total_pages = 0
-        
-        # 初始化多个标签页
+        self.pool_lock = Lock()
         for _ in range(pool_size):
             tab = self.browser.new_tab()
             self.pages.put(tab)
             self.total_pages += 1
+
     def get_page(self):
         if self.pages.empty() and self.total_pages < self.max_pool_size:
             with self.pool_lock:
@@ -150,52 +147,55 @@ class PagePool:
                     return tab
         return self.pages.get()
 
-        
     def release_page(self, page):
         page.get("about:blank")
         self.pages.put(page)
 
-    def close(self):
-        self.browser.quit()
-
 class DrissionpageMiddleware:
+    _shared_pool = None
+    _active_spiders = 0
+    _lock = Lock()
+
     def __init__(self, pool_size=8):
-        self.pool = PagePool(pool_size)
-        self.browser = self.pool.browser  # 从 PagePool 中获取浏览器实例
+        cls = self.__class__
+        with cls._lock:
+            if cls._shared_pool is None:
+                cls._shared_pool = PagePool(pool_size)
+            self.pool = cls._shared_pool
+            cls._active_spiders += 1
 
     @classmethod
     def from_crawler(cls, crawler):
         pool_size = crawler.settings.getint('CONCURRENT_REQUESTS', 8)
         middleware = cls(pool_size)
-        # 注册信号处理
         crawler.signals.connect(middleware.spider_closed, signal=signals.spider_closed)
         return middleware
 
-
-
-    
-    def spider_closed(self, spider):
-        """爬虫关闭时自动调用此方法"""
-        # 关闭浏览器（关键步骤）
-        pass
-        # if self.browser:
-        #     self.browser.quit()
-        #     spider.logger.info("Chromium browser closed successfully.")
     def process_request(self, request, spider):
         def _process_request(request):
-            wait_ele=request.meta.get('wait_ele', None)
-            print("请求wait_ele",wait_ele)
-            page =self.pool.get_page()
+            wait_ele = request.meta.get('wait_ele', None)
+            change=request.meta.get('change', False)
+
+            page = self.pool.get_page()
             try:
-                page.get(request.url,timeout=15)
+                page.get(request.url)
+                cookies = request.cookies
+                if cookies:
+                    page.set.cookies(cookies)
                 if wait_ele:
-                    page.wait.eles_loaded(wait_ele, timeout=5,any_one=True)
-                page.change_mode()
-                html = page.html
-                page.change_mode()
+                    page.wait.eles_loaded(wait_ele, timeout=5, any_one=True)
+
+                if change:
+                    page.change_mode()
+
+                html = page.html.encode('utf-8')
+
+                if change:
+                    page.change_mode()
+                    
                 return HtmlResponse(
                     url=page.url,
-                    body=html.encode('utf-8'),
+                    body=html,
                     request=request,
                     encoding='utf-8'
                 )
@@ -203,5 +203,12 @@ class DrissionpageMiddleware:
                 self.pool.release_page(page)
 
         return threads.deferToThread(_process_request, request)
-    
 
+    def spider_closed(self, spider):
+        cls = self.__class__
+        with cls._lock:
+            cls._active_spiders -= 1
+            if cls._active_spiders == 0 and cls._shared_pool is not None:
+                cls._shared_pool.browser.quit()
+                cls._shared_pool = None
+                spider.logger.info("Chromium browser closed successfully.") 

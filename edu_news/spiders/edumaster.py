@@ -4,6 +4,7 @@ from urllib.parse import urljoin
 import time
 from redis import Redis
 import hashlib
+import traceback
 class EdumasterSpider(scrapy.Spider):
     name = "edumaster"
     allowed_domains = ["www.moe.gov.cn"]
@@ -68,7 +69,7 @@ class EdumasterSpider(scrapy.Spider):
                 item['create_time']=time.strftime("%Y-%m-%d %H:%M:%S", current_time)
                 yield item
             except Exception as e:
-                self.logger.error(f"Error parsing item: {e}")
+                self.logger.error(f"Error processing item: {traceback.format_exc()}")
 
             
 

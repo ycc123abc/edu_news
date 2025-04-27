@@ -4,7 +4,7 @@ from urllib.parse import urljoin
 import time
 from redis import Redis
 import hashlib
-
+import traceback
 class ZygovSpider(scrapy.Spider):
     name = "anhui"
     allowed_domains = ["jyt.ah.gov.cn"]
@@ -22,7 +22,7 @@ class ZygovSpider(scrapy.Spider):
         for url in start_urls:
             print(url)
             self.global_page_num[url]=None
-            self.wait_ele="//div[@class='rightnr']//li"
+            self.wait_ele="//div[@class='rightnr']]//li[@class='even' or @class='odd']"
             yield scrapy.Request(url=url, callback=self.parse,meta={"page":1,"_url":url,"wait_ele":f"xpath:{self.wait_ele}"})
     
 
@@ -56,7 +56,7 @@ class ZygovSpider(scrapy.Spider):
         for zixun in zixuns:
             try:
                 item=EduNewsItem()
-                item['title']=zixun.xpath("./a[@class='left']/span/text()")[0].extract()
+                item['title']=zixun.xpath("./a[@class='left']/span[@style='color:;']/text()")[0].extract()
                 
                 item['time']=zixun.xpath("./span/text()")[0].extract()
                 
@@ -77,7 +77,8 @@ class ZygovSpider(scrapy.Spider):
                 item['create_time']=time.strftime("%Y-%m-%d %H:%M:%S", current_time)
                 yield item
             except Exception as e:
-                self.logger.error(f"Error parsing item: {e}")
+                has_new=False
+                self.logger.error(f"Error processing item: {traceback.format_exc()}")
             
         next_page = current_page + 1
         # 动态生成下一页请求
@@ -86,8 +87,7 @@ class ZygovSpider(scrapy.Spider):
             
             if self.global_page_num[_url] is None:
                 # 获取总页数
-                page=response.xpath("//span[@class='total']/text()")[0].extract()
-                page=page.replace("共","").replace("页","").replace(" ","") 
+                page=response.xpath("//a[6]/@paged")[0].extract()
                 try:
                     page=int(page)
                     self.global_page_num[_url]=page

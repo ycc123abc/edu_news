@@ -4,7 +4,7 @@ from urllib.parse import urljoin
 import time
 from redis import Redis
 import hashlib
-
+import traceback
 class ZygovSpider(scrapy.Spider):
     name = "henan"
     allowed_domains = ["jyt.henan.gov.cn"]
@@ -82,8 +82,8 @@ class ZygovSpider(scrapy.Spider):
                 current_time=time.localtime()
                 item['create_time']=time.strftime("%Y-%m-%d %H:%M:%S", current_time)
                 yield item
-            except Exception as e:
-                self.logger.error(f"Error parsing item: {e}")
+            except:
+                self.logger.error(f"Error processing item: {traceback.format_exc()}")
             
         next_page = current_page + 1
         # 动态生成下一页请求

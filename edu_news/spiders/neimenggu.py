@@ -24,10 +24,10 @@ class ZygovSpider(scrapy.Spider):
             self.global_page_num[url]=None
             if "fdzdgknr" not in url:
                 self.wait_ele="//div[@class='tygl_con_con wzlm_con_con']/ul/li"
-                yield scrapy.Request(url=url, callback=self.parse,meta={"page":1,"_url":url,"wait_ele":f"xpath:{self.wait_ele}"})
+                yield scrapy.Request(url=url, callback=self.parse,meta={"page":1,"_url":url,"wait_ele":f"xpath:{self.wait_ele}","change":True})
             else:
                 self.wait_ele="//tbody/tr"
-                yield scrapy.Request(url=url, callback=self.parse,meta={"page":1,"_url":url,"wait_ele":f"xpath:{self.wait_ele}"})
+                yield scrapy.Request(url=url, callback=self.parse,meta={"page":1,"_url":url,"wait_ele":f"xpath:{self.wait_ele}","change":True})
 
     def redis_check(self, item):
         unique_str = f"{item['title']}{item['time']}"
@@ -54,18 +54,18 @@ class ZygovSpider(scrapy.Spider):
         if  not zixuns:
             has_new=False
         for zixun in zixuns:
-
+            try:
                 item=EduNewsItem()
                 if "fdzdgknr" not in response.url:
-                    item['title']=zixun.xpath("./a/text()")[0].extract().replace("\n","").replace("\t","").replace(" ","")
-                    item['time']=zixun.xpath("./span/text()")[0].extract()
+                    item['title']=zixun.xpath("./a/text()")[0].extract().replace("\n","").replace("\t","").replace(" ","").strip()
+                    item['time']=zixun.xpath("./span/text()")[0].extract().replace("\n","").replace("\t","").replace(" ","").strip()
                     item['source_name']=response.xpath("//div[@class='tygl_con_tit']/span/text()")[0].extract()
                     patrurl=urljoin(response.url,zixun.xpath("./a/@href")[0].extract())
                     item['url']=patrurl
                 else:
-                    item['title']=zixun.xpath("./td[2]/a/text()")[0].extract().replace("\n","").replace("\t","").replace(" ","")
-                    item['time']=zixun.xpath("./td[6]/text()")[0].extract()
-                    item['source_name']=response.xpath("//h3/text()")[0].extract()
+                    item['title']=zixun.xpath("./td[2]/a/text()")[0].extract().replace("\n","").replace("\t","").replace(" ","").strip()
+                    item['time']=zixun.xpath("./td/text()")[-1].extract().replace("\n","").replace("\t","").replace(" ","").strip()
+                    item['source_name']=response.xpath("//h3/text()")[0].extract().replace("\n","").replace("\t","").replace(" ","").strip()
                     patrurl=urljoin(response.url,zixun.xpath(".//a/@href")[0].extract())
                     item['url']=patrurl
                 if self.redis_check(item):
@@ -74,16 +74,12 @@ class ZygovSpider(scrapy.Spider):
                         has_new=False
                     continue
                 item['source_web_name']=self.source_web_name
-
                 item['source_url']=response.url
-
-                
-
-            
                 current_time=time.localtime()
                 item['create_time']=time.strftime("%Y-%m-%d %H:%M:%S", current_time)
                 yield item
-
+            except:
+                self.logger.error(f"Error processing item: {traceback.format_exc()}")
             
         next_page = current_page + 1
         # 动态生成下一页请求
@@ -107,7 +103,7 @@ class ZygovSpider(scrapy.Spider):
                         self.global_page_num[_url]=1
             if next_page <= self.global_page_num[_url]:
                 next_url = urljoin(response.url, f"index_{next_page-1}.html")
-                yield scrapy.Request(next_url, callback=self.parse, meta={'page': next_page,"_url":_url,"wait_ele":f"xpath:{wait_ele}"})
+                yield scrapy.Request(next_url, callback=self.parse, meta={'page': next_page,"_url":_url,"wait_ele":f"xpath:{wait_ele}","change":True})
 
 
 
