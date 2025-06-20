@@ -12,6 +12,9 @@ BOT_NAME = "edu_news"
 SPIDER_MODULES = ["edu_news.spiders"]
 NEWSPIDER_MODULE = "edu_news.spiders"
 
+
+
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "edu_news (+http://www.yourdomain.com)"
 
@@ -64,7 +67,7 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    # "edu_news.pipelines.IncrementalPipeline":200,
+    "edu_news.pipelines.IncrementalPipeline":200,
    "edu_news.pipelines.EduNewsPipeline": 300,
 }
 
@@ -92,3 +95,32 @@ ITEM_PIPELINES = {
 # Set settings whose default value is deprecated to a future-proof value
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+
+
+# 添加在文件末尾
+import os
+
+# 日志基础配置
+LOG_ENABLED = True
+LOG_LEVEL = 'ERROR'
+LOG_FORMAT = '%(asctime)s [%(name)s] %(levelname)s: %(message)s'
+LOG_DATEFORMAT = '%Y-%m-%d %H:%M:%S'
+
+# 自定义日志文件路径（自动创建logs目录）
+LOG_DIR = 'logs'
+if not os.path.exists(LOG_DIR):
+    os.makedirs(LOG_DIR)
+
+# 错误日志配置（含爬虫名称和时间戳）
+LOG_FILE = os.path.join(LOG_DIR, 'error_%(time)s_%(spider_name)s.log')
+
+# 统计信息配置
+STATS_DUMP = True
+STATS_CLASS = 'scrapy.statscollectors.MemoryStatsCollector'
+
+# 扩展日志处理器（保留原有配置基础上新增）
+EXTENSIONS = {
+    'scrapy.extensions.logstats.LogStats': 500,
+    'scrapy.extensions.corestats.CoreStats': 501,
+}

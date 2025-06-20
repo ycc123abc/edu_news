@@ -8,8 +8,7 @@ import json
 class ZygovSpider(scrapy.Spider):
     name = "heilongjiang"
     allowed_domains = ["jyt.hlj.gov.cn"]
-    global_page_num:dict={}
-    redis_conn =Redis(host="127.0.0.1", port=6379, db=7)
+
     def start_requests(self):
         start_urls = ["http://jyt.hlj.gov.cn/common/search/d9459b0a5b814070974bee87b113b6a1?_isAgg=true&_isJson=true&_pageSize=15&_template=index&_rangeTimeGte=&_channelName=&page=1",   #教育厅
                    "http://jyt.hlj.gov.cn/common/search/bffa5a0ba13c428bb95799f87aa2e9fe?_isAgg=true&_isJson=true&_pageSize=15&_template=index&_rangeTimeGte=&_channelName=&page=1",           #通知公告
@@ -20,41 +19,29 @@ class ZygovSpider(scrapy.Spider):
         for url in start_urls:
             if "e575055b2b3f4ef2ba1ee5c53e36475a" in url:
                 # for i in range(1, 131):
-                for i in range(1, 10):
+                for i in range(1, 5):
                     url_=url.replace("page=1","page="+str(i))
                     yield scrapy.Request(url=url_, callback=self.parse,meta={"json": True,"change":True})
 
             if "d9459b0a5b814070974bee87b113b6a1" in url:
                 # for i in range(1, 156):
-                for i in range(1, 10):
+                for i in range(1, 5):
                     url_=url.replace("page=1","page="+str(i))
                     yield scrapy.Request(url=url_, callback=self.parse,meta={"json": True,"change":True})
 
             if "bffa5a0ba13c428bb95799f87aa2e9fe" in url:
                 # for i in range(1, 71):
-                for i in range(1, 10):
+                for i in range(1, 5):
                     url_=url.replace("page=1","page="+str(i))
                     yield scrapy.Request(url=url_, callback=self.parse,meta={"json": True,"change":True})
             
             if "443c0ba9d1a74f709497959900a6025e" in url:
                 # for i in range(1, 95):
-                for i in range(1, 10):
+                for i in range(1, 5):
                     url_=url.replace("page=1","page="+str(i))
                     yield scrapy.Request(url=url_, callback=self.parse,meta={"json": True,"change":True})
 
-    def redis_check(self, item):
-        unique_str = f"{item['title']}{item['time']}"
-        fingerprint=hashlib.md5(unique_str.encode()).hexdigest()
 
-        self.redis_key = f"news_fingerprints:{self.name}"
-        print(f"当前指纹：{fingerprint}")
-        # 检查指纹是否已存在
-        if self.redis_conn.sismember(self.redis_key, fingerprint):
-            return 1
-        else:
-            # 存储新指纹
-            self.redis_conn.sadd(self.redis_key, fingerprint)
-            return 0
 
 
     def parse(self, response):
@@ -71,8 +58,8 @@ class ZygovSpider(scrapy.Spider):
             item['source_web_name']="黑龙江省教育厅"
             item['source_name']=result["channelName"]
 
-            if not self.redis_check(item):
-                yield item
+
+            yield item
             
 
 

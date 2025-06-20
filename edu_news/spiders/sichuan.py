@@ -9,7 +9,7 @@ class ZygovSpider(scrapy.Spider):
     name = "sichuan"
     allowed_domains = ["edu.sc.gov.cn"]
     global_page_num:dict={}
-    redis_conn =Redis(host="127.0.0.1", port=6379, db=7)
+    
 
     def start_requests(self):
         start_urls = ["http://edu.sc.gov.cn/scedu/c100494/xwzx_list.shtml",   #委厅信息
@@ -32,75 +32,38 @@ class ZygovSpider(scrapy.Spider):
 
 
 
-            
-
-    def redis_check(self, item):
-        unique_str = f"{item['title']}{item['time']}"
-        fingerprint=hashlib.md5(unique_str.encode()).hexdigest()
-
-        self.redis_key = f"news_fingerprints:{self.name}"
-        print(f"当前指纹：{fingerprint}")
-        # 检查指纹是否已存在
-        if self.redis_conn.sismember(self.redis_key, fingerprint):
-            return 1
-        else:
-            # 存储新指纹
-            self.redis_conn.sadd(self.redis_key, fingerprint)
-            return 0
-
 
     def parse(self, response):
         print(response.url,"开始爬虫")
         current_page = response.meta.get('page', 1)
         wait_ele=response.meta.get('wait_ele').replace("xpath:","")
-        has_new = True
         zixuns=response.xpath(wait_ele)
-        n=0
-        if  not zixuns:
-            has_new=False
+
         for zixun in zixuns:
-            try:
                 item=EduNewsItem()
                 item['title']=zixun.xpath("./a/text()")[0].extract().replace(" ","").replace("\n","").replace("\t","")
                 item["time"]=zixun.xpath("./span/text()")[0].extract().replace(" ","").replace("\n","").replace("\t","")
-
                 item['source_name']=zixun.xpath("//div[@class='title']/span/text()")[0].extract().replace(" ","").replace("\n","").replace("\t","")
-
-                if self.redis_check(item):
-                    n+=1
-                    if n>=len(zixuns):
-                        has_new=False
-                    continue
                 item['source_web_name']="四川省教育厅"
                 patrurl=urljoin(response.url,zixun.xpath("./a/@href")[0].extract().replace(" ","").replace("\n","").replace("\t",""))
                 item['url']=patrurl
                 item['source_url']=response.url
-                
                 current_time=time.localtime()
                 item['create_time']=time.strftime("%Y-%m-%d %H:%M:%S", current_time)
                 yield item
-            except Exception as e:
-                has_new=False
-                self.logger.error(f"Error processing item: {traceback.format_exc()}")
-            
-        next_page = current_page + 1
-        # 动态生成下一页请求
-        _url=response.meta.get('_url')
-        if has_new:
-            
-            if self.global_page_num[_url] is None:
-                # 获取总页数
-                page=response.xpath("//a[@class='pagination-index'][4]/@href")[0].extract()
-                page=page.split("_")[-1].split(".")[0].replace(" ","")
-                try:
-                    page=int(page)
-                    self.global_page_num[_url]=page
-                except:
-                    self.global_page_num[_url]=1
-            if next_page <= self.global_page_num[_url]:
-                next_url=urljoin(response.url,f"xwzx_list_{next_page}.shtml")
-                yield scrapy.Request(next_url, callback=self.parse, meta={'page': next_page,"_url":_url,"wait_ele":f"xpath:{wait_ele}"})
 
+
+        if current_page==1 :   
+            pages=response.xpath("//a[@class='pagination-index'][4]/@href")[0].extract()
+            pages=pages.split("_")[-1].split(".")[0].replace(" ","")
+            pages=int(pages)
+            if pages >= 5:
+                pages = 5
+            if pages<=1 :
+                return
+            for next_page in range(2, pages + 1):
+                next_url=urljoin(response.url,f"xwzx_list_{next_page}.shtml")
+                yield scrapy.Request(next_url, callback=self.parse, meta={'page': 0,"wait_ele":f"xpath:{wait_ele}"})
 
 
 

@@ -1,0 +1,1016 @@
+2025-06-20 15:51:55 [scrapy.core.scraper] ERROR: Spider error processing <GET http://edu.sc.gov.cn/scedu/c100494/xwzx_list.shtml> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "d:\ProgramData\spiderproject\edu_news\edu_news\spiders\sichuan.py", line 57, in parse
+    pages=response.xpath("//a[@class='pagination-index'][4]/@href")[0].extract()
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+
+2025-06-20 15:52:20 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.qinghai.gov.cn/gk/wsgs/> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "d:\ProgramData\spiderproject\edu_news\edu_news\spiders\qinghai.py", line 32, in parse
+    item['time']=zixun.xpath("./span/text()")[0].extract()
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:20 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/6ed9cac952e94022bd5bd213764b983d?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=8> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:20 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/6ed9cac952e94022bd5bd213764b983d?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=2> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:20 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/6ed9cac952e94022bd5bd213764b983d?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=6> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:20 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/6ed9cac952e94022bd5bd213764b983d?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=1> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:20 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/6ed9cac952e94022bd5bd213764b983d?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=3> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:20 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/6ed9cac952e94022bd5bd213764b983d?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=4> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:20 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/6ed9cac952e94022bd5bd213764b983d?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=5> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:20 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/6ed9cac952e94022bd5bd213764b983d?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=7> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:22 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/6ed9cac952e94022bd5bd213764b983d?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=9> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:22 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/c7df0c0ea0b7444d9744d4a6c1fcca4b?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=1> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:22 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/c7df0c0ea0b7444d9744d4a6c1fcca4b?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=2> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:22 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/c7df0c0ea0b7444d9744d4a6c1fcca4b?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=3> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:23 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/c7df0c0ea0b7444d9744d4a6c1fcca4b?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=4> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:23 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/c7df0c0ea0b7444d9744d4a6c1fcca4b?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=5> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:23 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/c7df0c0ea0b7444d9744d4a6c1fcca4b?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=6> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:23 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/c7df0c0ea0b7444d9744d4a6c1fcca4b?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=7> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:25 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/c7df0c0ea0b7444d9744d4a6c1fcca4b?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=8> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:25 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/c7df0c0ea0b7444d9744d4a6c1fcca4b?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=9> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:25 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/695dc7247ea148ad8e01ad5988132d63?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=1> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:25 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/695dc7247ea148ad8e01ad5988132d63?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=2> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:25 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/695dc7247ea148ad8e01ad5988132d63?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=3> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:25 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/695dc7247ea148ad8e01ad5988132d63?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=4> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:25 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/695dc7247ea148ad8e01ad5988132d63?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=5> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:26 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/695dc7247ea148ad8e01ad5988132d63?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=6> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:27 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/695dc7247ea148ad8e01ad5988132d63?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=7> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:27 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/695dc7247ea148ad8e01ad5988132d63?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=8> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-06-20 16:00:27 [scrapy.core.scraper] ERROR: Spider error processing <GET https://jyt.gansu.gov.cn/common/search/695dc7247ea148ad8e01ad5988132d63?sort=&_isAgg=true&_isJson=true&_pageSize=10&_template=index&_rangeTimeGte=&_rangeTimeLt=&_channelName=&page=9> (referer: None)
+Traceback (most recent call last):
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\utils\python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\spidermiddlewares\depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\scrapy\core\spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "D:\ProgramData\spiderproject\edu_news\edu_news\spiders\gansu.py", line 42, in parse
+    json_text=response.xpath('//pre/text()')[0].extract()
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Programs\anaconda3\envs\spider\Lib\site-packages\parsel\selector.py", line 135, in __getitem__
+    o = super().__getitem__(pos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range

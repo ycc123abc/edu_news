@@ -127,6 +127,7 @@ class PagePool:
         self.pool_size = pool_size
         self.chromium_options = ChromiumOptions()
         self.chromium_options.no_imgs(True)
+        self.chromium_options.set_argument('--disable-blink-features=AutomationControlled')
         self.chromium_options.headless()
         self.browser = Chromium(self.chromium_options)
         self.pages = Queue()
@@ -175,24 +176,26 @@ class DrissionpageMiddleware:
         def _process_request(request):
             wait_ele = request.meta.get('wait_ele', None)
             change=request.meta.get('change', False)
-
             page = self.pool.get_page()
+            num=request.meta.get('num', 1)
             try:
-                page.get(request.url)
-                cookies = request.cookies
-                if cookies:
-                    page.set.cookies(cookies)
-                if wait_ele:
-                    page.wait.eles_loaded(wait_ele, timeout=5, any_one=True)
 
                 if change:
+                    # page.get(request.url)
                     page.change_mode()
-
-                html = page.html.encode('utf-8')
-
-                if change:
+                    page.get(request.url)
+                    html=page.html
                     page.change_mode()
-                    
+                else:
+                    for i in range(num):
+                        page.get(request.url)
+                        page.wait(0.1)
+                        if num!=1:
+                            page.cookies=page.cookies
+                            page.wait(1)
+                    if wait_ele:
+                        page.wait.eles_loaded(wait_ele, timeout=10, any_one=True)
+                    html = page.html.encode('utf-8')
                 return HtmlResponse(
                     url=page.url,
                     body=html,

@@ -1,13 +1,10 @@
-import requests
+from DrissionPage import ChromiumOptions,Chromium
 
-url = "https://jyt.qinghai.gov.cn/xw/jydt/indexf.ashx"
+co=Chromium()
+tab=co.new_tab()
 
-payload = {'namereq': '1461,1429,1425,1422,1420,1419,1426,1407,1386,1382,1381,1378,1377'}
-files=[
-
-]
-headers = {}
-
-response = requests.request("POST", url, headers=headers, data=payload, files=files)
-
-print(response.text)
+tab.change_mode()
+tab.get("https://jw.cq.gov.cn/zwxx_209/jdtp/index.html")
+html=tab.html
+print(html)
+tab.change_mode()

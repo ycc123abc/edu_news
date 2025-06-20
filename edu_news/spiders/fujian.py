@@ -10,7 +10,7 @@ class ZygovSpider(scrapy.Spider):
     name = "fujian"
     allowed_domains = ["jyt.fujian.gov.cn"]
     global_page_num:dict={}
-    redis_conn =Redis(host="127.0.0.1", port=6379, db=7)
+    
     def start_requests(self):
         start_urls = ["https://jyt.fujian.gov.cn/fjdzapp/search?channelid=229105&sortfield=-docorderpri%2C-docreltime&classsql=(chnlid%3D30242)*(publishyear%3D2025)&classcol=publishyear&classnum=100&classsort=0&cache=true&page=1&prepage=75",   #教育厅
                    "https://jyt.fujian.gov.cn/fjdzapp/search?channelid=229105&sortfield=-docorderpri%2C-docreltime&classsql=(chnlid%3D30245)*(publishyear%3D2025)&classcol=publishyear&classnum=100&classsort=0&cache=true&page=1&prepage=75",           #教育动态
@@ -40,25 +40,12 @@ class ZygovSpider(scrapy.Spider):
             
 
 
-    def redis_check(self, item):
-        unique_str = f"{item['title']}{item['time']}"
-        fingerprint=hashlib.md5(unique_str.encode()).hexdigest()
 
-        self.redis_key = f"news_fingerprints:{self.name}"
-        print(f"当前指纹：{fingerprint}")
-        # 检查指纹是否已存在
-        if self.redis_conn.sismember(self.redis_key, fingerprint):
-            return 1
-        else:
-            # 存储新指纹
-            self.redis_conn.sadd(self.redis_key, fingerprint)
-            return 0
 
 
     def parse(self, response):
         tree=etree.HTML(response.text)
         json_text=tree.xpath('//pre')[0].text
-        print(json_text)
         response_json  =  json.loads(json_text)
         results = response_json["data"]
         for result in results:
@@ -72,8 +59,7 @@ class ZygovSpider(scrapy.Spider):
             item['source_web_name']="福建省教育厅"
             item['source_name']=result["chnlname"]
 
-            if not self.redis_check(item):
-                yield item
+            yield item
             
 
 
