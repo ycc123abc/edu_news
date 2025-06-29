@@ -1,0 +1,6 @@
+Scrapy
+DrissionPage
+redis
+PyMySQL
+scrapy-redis
+twisted
