@@ -1,0 +1,11 @@
+scrapy
+scrapyd
+scrapy-redis
+redis
+pymysql
+logparser
+scrapyd-client
+fake-useragent
+Drissionpage
+lxml
+twisted
