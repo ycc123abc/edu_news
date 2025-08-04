@@ -1,0 +1,111 @@
+services:
+
+  mysql:
+    image: mysql:9.0.1
+    container_name: mysql
+    environment:
+      MYSQL_BIND_ADDRESS: 0.0.0.0
+      MYSQL_DATABASE: test
+      MYSQL_ROOT_PASSWORD: 123456
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/conf/my.cnf:/etc/my.cnf
+      - ./mysql/init:/docker-entrypoint-initdb.d
+    networks:
+      - spider-net
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis/data:/data
+      - ./redis/conf/redis.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+    networks:
+      - spider-net
+
+  scrapyd:
+    build: scrapyd
+    container_name: scrapyd
+    volumes:
+      - ./scrapyd:/app
+      - ./scrapyd/scrapyd.conf:/etc/scrapyd/scrapyd.conf
+    environment:
+      - TZ=Asia/Shanghai
+    ports:
+      - 6800:6800
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - spider-net
+
+#  gerapy:
+#    container_name: gerapy
+#    image: germey/gerapy:latest
+#    #environment:
+#    # - GERAPY_PORT=8001（有大佬知道如何覆盖镜像里的默认端口麻烦告知一下）
+#        #network_mode: "host"
+#    ports:
+#             - "8001:8000"
+#    volumes:
+#      - ./gerapy:/app/gerapy
+#    depends_on:
+#      - scrapyd
+#    restart: always
+#    networks:
+#      - spider-net
+
+                       
+
+  scrapydweb:
+    build: ./scrapydweb
+    container_name: scrapydweb
+    volumes:
+      - ./scrapydweb:/app
+    environment:
+      - TZ=Asia/Shanghai
+    ports:
+      - "5000:5000"
+    depends_on:
+      - scrapyd
+    networks:
+      - spider-net
+#  master:
+#    build: ./crawlab 
+#    image: crawlab
+#    container_name: crawlab_master
+#    restart: always
+#    environment:
+#      CRAWLAB_NODE_MASTER: "Y"  # Y: 主节点
+#      CRAWLAB_MONGO_HOST: "mongo"  # mongo host address. 在 Docker-Compose 网络中，直接引用 service 名称
+#    volumes:
+#      - "./crawlab/master:/data"  # 持久化 crawlab 数据
+#    ports:
+#      - "8080:8080"  # 开放 api 端口
+#    depends_on:
+#      - mongo
+#    networks:
+#      - spider-net
+#
+#  mongo:
+#    image: mongo
+#    restart: always
+#    volumes:
+#      - "./mongo/data:/data"  # 持久化 mongo 数据
+#    ports:
+#      - "27017:27017"  # 开放 mongo 端口到宿主机
+#    networks:
+#      - spider-net
+
+
+volumes:
+  mysql_data:
+
+networks:
+  spider-net:
+    driver: bridge
