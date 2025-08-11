@@ -7,11 +7,8 @@ EXPOSE 6800
 
 ENV TZ=Asia/Shanghai
 
-RUN apt-get update && apt-get install -y \
-    chromium \
-    chromium-driver \
-    fonts-noto-cjk
-    
+RUN apt-get update && apt-get install -y chromium
+
 ENV DRISSIONPAGE_CHROME_PATH=/usr/bin/chromium
 ENV DRISSIONPAGE_DOWNLOAD_PATH=/app/downloads
 
