@@ -1,0 +1,1 @@
+使用scrapy，scrapyd，scrapydweb并以Drissionpage为中间件的爬虫docker部署方式
